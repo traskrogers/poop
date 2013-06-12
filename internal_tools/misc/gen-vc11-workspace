@@ -1,0 +1,35 @@
+#! /bin/bash
+# syntax: gen-vc11-workspace [rootdir]
+
+# rootdir defaults to visualize root, but can be overridden to avoid
+# cluttering your entire tree with untracked files
+
+# determine and cd to rootdir
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+if [ x"$1"x !=  xx ]; then
+	rootdir="$1"
+else
+	rootdir="${scriptdir}/../.."
+fi
+cd "$rootdir"
+
+echo "searching for vc10 projects to migrate in $(pwd)"
+
+# Find vc10 solutions/projects
+old_slns="$(find . -type f -name "*[vc][cs]10.sln")"
+old_projs="$(find . -type f \( -name "*v[cs]10.vcxproj" \
+							-o -name "*v[cs]10.vcxproj.filters" \
+							-o -name "*[vc][cs]10.csproj" \))"
+
+num_slns=$(echo -n "$old_slns" | wc -l)
+num_projs=$(echo -n "$old_projs" | wc -l)
+echo "$num_slns vc10 solution files found"
+echo "$num_projs vc10 project & filter files found"
+
+# Copy to new filenames and use sed to find-replace
+for f in $old_slns $old_projs; do
+	new_f=$(echo $f | sed 's/\([vc][cs]\)10/\111/')
+	echo -e "$(basename $f) -> $(basename $new_f)"
+	cp -a $f $new_f
+	sed -bi 's/\([vc][cs]\)10/\111/g' $new_f
+done

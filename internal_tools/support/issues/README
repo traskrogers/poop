@@ -1,0 +1,20 @@
+# requires beautifulsoup4 - www.crummy.com/software/BeautifulSoup/bs4/doc
+#   in windows cygwin - make sure python is installed, if not, get the setup.exe from cygwin,
+#   download beautifulsoup4, unzip the files and run 
+#   python setup.py install 
+
+#   in linux - follow documentation
+
+# change down_dir in issue.py to whatever directory you want
+# change login.py to encrypt.py and change user name and password (then guard it with your life)
+
+# usage: python issue.py <issue number> <option>
+# if <option> is not specified, then gives summary/description/etc.
+# current options include
+# e for emails
+# n for notes
+
+
+# this is not meant to replace eventum, as many things may be easier with GUI 
+# but may add some features if eventum gets tedious
+# such as changing assignment, priority, etc.

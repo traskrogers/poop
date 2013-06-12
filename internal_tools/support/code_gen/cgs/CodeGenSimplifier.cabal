@@ -1,0 +1,63 @@
+name: CodeGenSimplifier
+version: 0.0.1
+cabal-version: -any
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+copyright:
+maintainer:
+build-depends: base -any, binary -any, bytestring -any,
+               containers -any, deepseq -any, directory -any, filepath -any,
+               haskell-src-meta -any, monadlist -any, mtl -any, parsec -any,
+               split -any, system-fileio -any, template-haskell -any,
+               temporary -any, tuple -any, list-tries -any
+stability:
+homepage: http://www.techsoft3d.com/
+package-url:
+bug-reports:
+synopsis: Simplifies HOOPS code generation output.
+description: Simplifies HOOPS code generation output.
+category:
+author: Thomas Eding
+tested-with:
+data-files:
+data-dir: ""
+extra-source-files:
+extra-tmp-files:
+ 
+executable: cgs
+main-is: Main.hs
+buildable: True
+build-tools:
+cpp-options:
+cc-options:
+ld-options:
+pkgconfig-depends:
+frameworks:
+c-sources:
+default-language:
+other-languages:
+default-extensions:
+other-extensions:
+extensions:
+extra-libraries:
+extra-lib-dirs:
+includes:
+install-includes:
+include-dirs:
+hs-source-dirs: src
+other-modules: 
+
+
+ghc-prof-options:
+ghc-shared-options:
+ghc-options:
+	-Wall
+	-O2 
+	-- -fforce-recomp
+	-- -rtsopts -prof -osuf o_p -auto-all -caf-all 
+hugs-options:
+nhc98-options:
+jhc-options:
+
+
